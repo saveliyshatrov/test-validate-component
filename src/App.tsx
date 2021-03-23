@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ValidateComponent from "./ValidateComponent";
+import SomeComponent from "./SomeComponent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ValidateComponent validate={true} text={'1'}>
+        <SomeComponent>
+          <ValidateComponent text={'2'}/>
+        </SomeComponent>
+        <SomeComponent>
+          <ValidateComponent text={'3'}>
+              <ValidateComponent text={'4'}/>
+          </ValidateComponent>
+        </SomeComponent>
+          <ValidateComponent text={'5'}>
+              <ValidateComponent text={"6"}/>
+          </ValidateComponent>
+      </ValidateComponent>
   );
 }
 
